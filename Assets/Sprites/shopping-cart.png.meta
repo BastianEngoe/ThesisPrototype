@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 51b5868a6c99f5a429eeb4346c25fe3c
+guid: 9831e7563e58b5d419ac2baf5ffff8b6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1398562571240891744
-    second: watering_can_0
+      213: 1681322260235158770
+    second: shopping-cart_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: watering_can_0
+      name: shopping-cart_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 28
-        width: 246
-        height: 189
+        x: 0
+        y: 0
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,8 +153,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 06568f6af31b86310800000000000000
-      internalID: 1398562571240891744
+      spriteID: 2f4064a00b1455710800000000000000
+      internalID: 1681322260235158770
       vertices: []
       indices: 
       edges: []
@@ -170,7 +170,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      watering_can_0: 1398562571240891744
+      shopping-cart_0: 1681322260235158770
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
