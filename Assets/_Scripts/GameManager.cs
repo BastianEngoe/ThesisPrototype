@@ -32,11 +32,8 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
     }
-
-    private void Start()
-    {
-        gold = 5000;
-    }
+    
+    
 
     private void Update()
     {

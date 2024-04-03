@@ -461,7 +461,15 @@ MonoBehaviour:
   quota: 0
   animalProduction: 1
   animalPen: {fileID: 0}
-  animals: []
+  animals:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  costOfChicken: 10
+  costOfSheep: 100
+  costOfPig: 400
+  costOfCow: 2000
 --- !u!4 &1340968370
 Transform:
   m_ObjectHideFlags: 0
