@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
     [Header("Animals")] 
     public Transform animalPen;
     public GameObject[] animals;
+    private BoxCollider2D animalPenCollider;
     
     [Header("Cost of Animals")]
     public float costOfChicken = 10;
@@ -31,17 +33,17 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        animalPenCollider = animalPen.GetComponent<BoxCollider2D>();
     }
     
     
-
     private void Update()
     {
         timer -= Time.deltaTime;
 
         if (UIManager.instance) UIManager.instance.timeSlider.value = timer;
 
-        if (happiness > 0.1f)
+        if (happiness > 0.01f)
         {
             gold += animalProduction * (produce * happiness) * Time.deltaTime;
             happiness -= produce * 0.1f * Time.deltaTime;
@@ -58,7 +60,7 @@ public class GameManager : MonoBehaviour
             gold -= costOfChicken;
             if (animals[0] != null)
             {
-                Instantiate(animals[0], animalPen.position, quaternion.identity);
+                Instantiate(animals[0], RandomPenLocation(), Quaternion.Euler(0, 130, 0));
             }
             boughtSuccessful = true;
         }
@@ -69,7 +71,7 @@ public class GameManager : MonoBehaviour
             gold -= costOfSheep;
             if (animals[1] != null)
             {
-                Instantiate(animals[1], animalPen.position, quaternion.identity);
+                Instantiate(animals[1], RandomPenLocation(), Quaternion.Euler(0, 130, 0));
             }
             boughtSuccessful = true;
         }
@@ -81,7 +83,7 @@ public class GameManager : MonoBehaviour
             
             if (animals[2] != null)
             {
-                Instantiate(animals[2], animalPen.position, quaternion.identity);
+                Instantiate(animals[2], RandomPenLocation(), Quaternion.Euler(0, 130, 0));
             }
             boughtSuccessful = true;
         }
@@ -92,11 +94,23 @@ public class GameManager : MonoBehaviour
             gold -= costOfCow;
             if (animals[3] != null)
             {
-                Instantiate(animals[3], animalPen.position, quaternion.identity);
+                Instantiate(animals[3], RandomPenLocation(), Quaternion.Euler(0, 130, 0));
             }
             boughtSuccessful = true;
         }
 
         return boughtSuccessful;
+    }
+
+    private Vector3 RandomPenLocation()
+    {
+        float minX = animalPenCollider.bounds.min.x;
+        float minY = animalPenCollider.bounds.min.y;
+        float maxX = animalPenCollider.bounds.max.x;
+        float maxY = animalPenCollider.bounds.max.y;
+
+        Vector3 randomPosition = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), -1);
+
+        return randomPosition;
     }
 }
