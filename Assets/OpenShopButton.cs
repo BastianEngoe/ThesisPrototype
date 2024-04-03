@@ -12,6 +12,9 @@ public class OpenShopButton : MonoBehaviour
         {
             shop = GameObject.Find("ShopCanvas");
         }
+        shop.GetComponent<CanvasGroup>().alpha = 0;
+        shop.GetComponent<CanvasGroup>().blocksRaycasts = false;
+        shop.GetComponent<CanvasGroup>().interactable = false;
     }
     
     public void OpenShop()

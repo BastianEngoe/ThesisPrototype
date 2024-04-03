@@ -1,10 +1,28 @@
 fileFormatVersion: 2
-guid: 2b9349c9c9c6e69488d0f7769809e055
+guid: efd240c307b950543a3543aca6d77a21
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5903028914821672641
-    second: sheep-icon_0
+      213: -6666801092128795527
+    second: money-pouch_0
+  - first:
+      213: 2951973899728659421
+    second: money-pouch_1
+  - first:
+      213: -2076016111792512849
+    second: money-pouch_2
+  - first:
+      213: -8320875820703148759
+    second: money-pouch_3
+  - first:
+      213: 1559551455429493621
+    second: money-pouch_4
+  - first:
+      213: 2044289062931149515
+    second: money-pouch_5
+  - first:
+      213: -5565844188846142569
+    second: money-pouch_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,13 +157,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sheep-icon_0
+      name: money-pouch_0
       rect:
         serializedVersion: 2
-        x: 36
-        y: 1
-        width: 482
-        height: 465
+        x: 186
+        y: 368
+        width: 67
+        height: 63
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,8 +171,134 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f31d1314a7a341ea0800000000000000
-      internalID: -5903028914821672641
+      spriteID: 9741a7b9ab3ca73a0800000000000000
+      internalID: -6666801092128795527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: money-pouch_1
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 383
+        width: 59
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd32d8f1f9487f820800000000000000
+      internalID: 2951973899728659421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: money-pouch_2
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 366
+        width: 130
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa0ae9478528033e0800000000000000
+      internalID: -2076016111792512849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: money-pouch_3
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 351
+        width: 96
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9251ad6e68f468c80800000000000000
+      internalID: -8320875820703148759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: money-pouch_4
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 339
+        width: 82
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57381dd29c3a4a510800000000000000
+      internalID: 1559551455429493621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: money-pouch_5
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 322
+        width: 82
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc23a365216ce5c10800000000000000
+      internalID: 2044289062931149515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: money-pouch_6
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 17
+        width: 311
+        height: 311
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79b47a8033622c2b0800000000000000
+      internalID: -5565844188846142569
       vertices: []
       indices: 
       edges: []
@@ -170,7 +314,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      sheep-icon_0: -5903028914821672641
+      money-pouch_0: -6666801092128795527
+      money-pouch_1: 2951973899728659421
+      money-pouch_2: -2076016111792512849
+      money-pouch_3: -8320875820703148759
+      money-pouch_4: 1559551455429493621
+      money-pouch_5: 2044289062931149515
+      money-pouch_6: -5565844188846142569
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

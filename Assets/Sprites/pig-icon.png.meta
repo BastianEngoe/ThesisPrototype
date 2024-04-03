@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2b9349c9c9c6e69488d0f7769809e055
+guid: 9eeea8d0d3bfcf744835795837aded6f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5903028914821672641
-    second: sheep-icon_0
+      213: -7642498772763661147
+    second: pig-icon_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sheep-icon_0
+      name: pig-icon_0
       rect:
         serializedVersion: 2
-        x: 36
-        y: 1
-        width: 482
-        height: 465
+        x: 75
+        y: 13
+        width: 429
+        height: 434
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,8 +153,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f31d1314a7a341ea0800000000000000
-      internalID: -5903028914821672641
+      spriteID: 5ac201d9bd360f590800000000000000
+      internalID: -7642498772763661147
       vertices: []
       indices: 
       edges: []
@@ -170,7 +170,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      sheep-icon_0: -5903028914821672641
+      pig-icon_0: -7642498772763661147
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
