@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: eb6280dd334df6848a08489dcdcf7ace
+guid: 3db541d3a20aab742a656a6ae1396932
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3824146322478515066
-    second: hourglass_0
+      213: 8498774218767253030
+    second: x-cross-cancel_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hourglass_0
+      name: x-cross-cancel_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 22
-        width: 474
-        height: 468
+        x: 15
+        y: 15
+        width: 482
+        height: 482
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,8 +153,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a73c270b1d8121530800000000000000
-      internalID: 3824146322478515066
+      spriteID: 62ebedf9f16b1f570800000000000000
+      internalID: 8498774218767253030
       vertices: []
       indices: 
       edges: []
@@ -170,7 +170,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      hourglass_0: 3824146322478515066
+      x-cross-cancel_0: 8498774218767253030
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
