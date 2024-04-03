@@ -8,8 +8,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     
     [Header("Resources")] 
-    public int gold;
-    public float happiness;
+    public float gold;
+    [Range(0.0f, 1.0f)] public float happiness;
     public float timer = 600; //10 minutes
     
     [Header("Production")]
@@ -26,5 +26,11 @@ public class GameManager : MonoBehaviour
         timer -= Time.deltaTime;
 
         UIManager.instance.timeSlider.value = timer;
+
+        if (happiness > 0.1f)
+        {
+            gold += 10 * (produce * happiness) * Time.deltaTime;
+            happiness -= produce * 0.1f * Time.deltaTime;
+        }
     }
 }
