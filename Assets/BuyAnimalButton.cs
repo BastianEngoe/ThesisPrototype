@@ -6,6 +6,15 @@ public class BuyAnimalButton : MonoBehaviour
 {
     public void BuyAnimalButtonPress(string animalToBuy)
     {
-        GameManager.instance.BuyAnimal(animalToBuy);
+        bool buySuccessful = GameManager.instance.BuyAnimal(animalToBuy);
+    
+        if (buySuccessful)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Debug.Log("Not enough money!");
+        }
     }
 }

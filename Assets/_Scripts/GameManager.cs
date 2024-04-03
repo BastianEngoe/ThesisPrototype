@@ -21,17 +21,28 @@ public class GameManager : MonoBehaviour
     [Header("Animals")] 
     public Transform animalPen;
     public GameObject[] animals;
+    
+    [Header("Cost of Animals")]
+    public float costOfChicken = 10;
+    public float costOfSheep = 100;
+    public float costOfPig = 400;
+    public float costOfCow = 2000;
 
     private void Awake()
     {
         instance = this;
     }
 
+    private void Start()
+    {
+        gold = 5000;
+    }
+
     private void Update()
     {
         timer -= Time.deltaTime;
 
-        UIManager.instance.timeSlider.value = timer;
+        if (UIManager.instance) UIManager.instance.timeSlider.value = timer;
 
         if (happiness > 0.1f)
         {
@@ -40,38 +51,55 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void BuyAnimal(string animal)
+    public bool BuyAnimal(string animal)
     {
-        if (animal == "Hen")
+        bool boughtSuccessful = false;
+
+        if (animal == "Chicken" && gold >= 10)
         {
-            if (gold < 50) return;
             animalProduction += 0.1f;
-            gold -= 50;
-            Instantiate(animals[0], animalPen.position, quaternion.identity);
+            gold -= costOfChicken;
+            if (animals[0] != null)
+            {
+                Instantiate(animals[0], animalPen.position, quaternion.identity);
+            }
+            boughtSuccessful = true;
         }
 
-        if (animal == "Sheep")
+        if (animal == "Sheep" && gold >= 100)
         {
-            if(gold < 75 ) return;
             animalProduction += 0.2f;
-            gold -= 75;
-            Instantiate(animals[1], animalPen.position, quaternion.identity);
+            gold -= costOfSheep;
+            if (animals[1] != null)
+            {
+                Instantiate(animals[1], animalPen.position, quaternion.identity);
+            }
+            boughtSuccessful = true;
         }
 
-        if (animal == "Pig")
+        if (animal == "Pig" && gold >= 400)
         {
-            if (gold < 150) return;
             animalProduction += 0.5f;
-            gold -= 150;
-            Instantiate(animals[2], animalPen.position, quaternion.identity);
+            gold -= costOfPig;
+            
+            if (animals[2] != null)
+            {
+                Instantiate(animals[2], animalPen.position, quaternion.identity);
+            }
+            boughtSuccessful = true;
         }
 
-        if (animal == "Cow")
+        if (animal == "Cow" && gold >= 1000)
         {
-            if (gold < 300) return;
             animalProduction += 1.25f;
-            gold -= 300;
-            Instantiate(animals[3], animalPen.position, quaternion.identity);
+            gold -= costOfCow;
+            if (animals[3] != null)
+            {
+                Instantiate(animals[3], animalPen.position, quaternion.identity);
+            }
+            boughtSuccessful = true;
         }
+
+        return boughtSuccessful;
     }
 }
