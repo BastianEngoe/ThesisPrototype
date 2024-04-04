@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     public Slider timeSlider;
     public Slider happinessSlider;
     public TMP_Text goldText;
+    public Slider animalLeaveTimer;
 
     private void Awake()
     {
@@ -23,5 +24,6 @@ public class UIManager : MonoBehaviour
     {
         goldText.text = "Gold: " + (int)GameManager.instance.gold;
         happinessSlider.value = GameManager.instance.happiness;
+        animalLeaveTimer.value = GameManager.instance.animalLeaveTimer;
     }
 }

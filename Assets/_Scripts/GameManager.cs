@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -18,11 +19,12 @@ public class GameManager : MonoBehaviour
     [Range(0.0f, 1.0f)] public float produce;
     public int quota;
     public float animalProduction = 1;
+    public float animalLeaveTimer = 30f;
 
-    [Header("Animals")] 
-    public Transform animalPen;
+    [Header("Animals")]
     public GameObject[] animals;
-    private BoxCollider2D animalPenCollider;
+    public List<GameObject> boughtAnimals;
+    [SerializeField] private BoxCollider2D animalPenCollider;
     
     [Header("Cost of Animals")]
     public float costOfChicken = 10;
@@ -33,7 +35,6 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        animalPenCollider = animalPen.GetComponent<BoxCollider2D>();
     }
     
     
@@ -47,54 +48,70 @@ public class GameManager : MonoBehaviour
         {
             gold += animalProduction * (produce * happiness) * Time.deltaTime;
             happiness -= produce * 0.1f * Time.deltaTime;
+            UIManager.instance.animalLeaveTimer.gameObject.SetActive(false);
+            animalLeaveTimer = 30f;
+        }
+        else if (boughtAnimals.Count > 0)
+        {
+            UIManager.instance.animalLeaveTimer.gameObject.SetActive(true);
+            animalLeaveTimer -= Time.deltaTime;
+            if (animalLeaveTimer < 0)
+            {
+                LeaveAnimal();
+                animalLeaveTimer = 30f;
+            }
         }
     }
 
     public bool BuyAnimal(string animal)
     {
         bool boughtSuccessful = false;
+        GameObject animalToBuy;
 
         if (animal == "Chicken" && gold >= 10)
         {
-            animalProduction += 0.1f;
             gold -= costOfChicken;
             if (animals[0] != null)
             {
-                Instantiate(animals[0], RandomPenLocation(), Quaternion.Euler(0, 130, 0));
+                animalToBuy = Instantiate(animals[0], RandomPenLocation(), Quaternion.Euler(0, 130, 0));
+                boughtAnimals.Add(animalToBuy);
+                animalProduction += animalToBuy.GetComponent<Animal>().production;
             }
             boughtSuccessful = true;
         }
 
         if (animal == "Sheep" && gold >= 100)
         {
-            animalProduction += 0.2f;
             gold -= costOfSheep;
             if (animals[1] != null)
             {
-                Instantiate(animals[1], RandomPenLocation(), Quaternion.Euler(0, 130, 0));
+                animalToBuy = Instantiate(animals[1], RandomPenLocation(), Quaternion.Euler(0, 130, 0));
+                boughtAnimals.Add(animalToBuy);
+                animalProduction += animalToBuy.GetComponent<Animal>().production;
             }
             boughtSuccessful = true;
         }
 
         if (animal == "Pig" && gold >= 400)
         {
-            animalProduction += 0.5f;
             gold -= costOfPig;
-            
             if (animals[2] != null)
             {
-                Instantiate(animals[2], RandomPenLocation(), Quaternion.Euler(0, 130, 0));
+                animalToBuy = Instantiate(animals[2], RandomPenLocation(), Quaternion.Euler(0, 130, 0));
+                boughtAnimals.Add(animalToBuy);
+                animalProduction += animalToBuy.GetComponent<Animal>().production;
             }
             boughtSuccessful = true;
         }
 
         if (animal == "Cow" && gold >= 1000)
         {
-            animalProduction += 1.25f;
             gold -= costOfCow;
             if (animals[3] != null)
             {
-                Instantiate(animals[3], RandomPenLocation(), Quaternion.Euler(0, 130, 0));
+                animalToBuy = Instantiate(animals[3], RandomPenLocation(), Quaternion.Euler(0, 130, 0));
+                boughtAnimals.Add(animalToBuy);
+                animalProduction += animalToBuy.GetComponent<Animal>().production;
             }
             boughtSuccessful = true;
         }
@@ -112,5 +129,31 @@ public class GameManager : MonoBehaviour
         Vector3 randomPosition = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), -1);
 
         return randomPosition;
+    }
+
+    private void LeaveAnimal()
+    {
+        GameObject animalToLeave = boughtAnimals[Random.Range(0, boughtAnimals.Count)];
+        Animator animalAnim = animalToLeave.GetComponent<Animator>();
+        boughtAnimals.Remove(animalToLeave);
+        
+        int whichAnim = Random.Range(0, 3);
+        Debug.Log(whichAnim);
+        switch (whichAnim)
+        {
+            case 0: animalAnim.Play("Walk");
+                break;
+            case 1: animalAnim.Play("Run");
+                break;
+            case 2: animalAnim.Play("Spin");
+                break;
+        }
+
+        animalProduction -= animalToLeave.GetComponent<Animal>().production;
+        //animalToLeave.transform.DOMoveX(animalToLeave.transform.position.x + 5f, 3f);
+        animalToLeave.transform.DOMove(
+            new Vector3(animalToLeave.transform.position.x + 5f, animalToLeave.transform.position.y,
+                animalToLeave.transform.position.z - 11), 3f);
+        Destroy(animalToLeave, 3f);
     }
 }
