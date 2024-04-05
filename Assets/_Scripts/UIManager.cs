@@ -24,6 +24,34 @@ public class UIManager : MonoBehaviour
         instance = this;
     }
 
+    private void Start()
+    {
+        if (!timeSlider)
+        {
+            timeSlider = GameObject.Find("TimeSlider").GetComponent<Slider>();
+        }
+        if (!happinessSlider)
+        {
+            happinessSlider = GameObject.Find("HappinessSlider").GetComponent<Slider>();
+        }
+        if (!goldText)
+        {
+            goldText = GameObject.Find("GoldText").GetComponent<TMP_Text>();
+        }
+        if (!animalLeaveTimer)
+        {
+            animalLeaveTimer = GameObject.Find("AnimalLeaveTimer").GetComponent<Slider>();
+        }
+        if (!productionSlider)
+        {
+            productionSlider = GameObject.Find("ProductivitySlider").GetComponent<Slider>();
+        }
+        if (!animalProduction)
+        {
+            animalProduction = GameObject.Find("AnimalProductionText").GetComponent<TMP_Text>();
+        }
+    }
+
     private void Update()
     {
         goldText.text = "Gold: " + (int)GameManager.instance.gold;
