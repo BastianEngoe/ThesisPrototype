@@ -41,6 +41,10 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        
+        GameObject animalToBuy = Instantiate(animals[0], RandomPenLocation(), Quaternion.Euler(0, 130, 0));
+        boughtAnimals.Add(animalToBuy);
+        animalProduction += animalToBuy.GetComponent<Animal>().production;
     }
     
     
@@ -57,7 +61,7 @@ public class GameManager : MonoBehaviour
             UIManager.instance.animalLeaveTimer.gameObject.SetActive(false);
             animalLeaveTimer = 30f;
         }
-        else if (boughtAnimals.Count > 0)
+        else if (boughtAnimals.Count > 1)
         {
             UIManager.instance.animalLeaveTimer.gameObject.SetActive(true);
             animalLeaveTimer -= Time.deltaTime;
@@ -66,6 +70,16 @@ public class GameManager : MonoBehaviour
                 LeaveAnimal();
                 animalLeaveTimer = 30f;
             }
+        }
+
+        if (produce < 0.01f)
+        {
+            happiness += 0.01f * Time.deltaTime;
+        }
+
+        if (happiness > 1f)
+        {
+            happiness = 1f;
         }
     }
 

@@ -16,7 +16,8 @@ public class UIManager : MonoBehaviour
     public Slider animalLeaveTimer;
 
     [Header("UI Elements")] 
-    public GameObject gamblingPanel;
+    public Slider productionSlider;
+    public TMP_Text animalProduction;
 
     private void Awake()
     {
@@ -28,5 +29,7 @@ public class UIManager : MonoBehaviour
         goldText.text = "Gold: " + (int)GameManager.instance.gold;
         happinessSlider.value = GameManager.instance.happiness;
         animalLeaveTimer.value = GameManager.instance.animalLeaveTimer;
+        GameManager.instance.produce = productionSlider.value;
+        animalProduction.text = "x " + GameManager.instance.animalProduction;
     }
 }
