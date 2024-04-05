@@ -361,6 +361,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animalToBuy: Pig
+  maxAnimals: 5
+  animalCostText: {fileID: 0}
   errorMessage: {fileID: 5162230286646371157, guid: 8e573472bdab2064d96998d3ecd9b446, type: 3}
 --- !u!1 &903436541577112682
 GameObject:
@@ -374,7 +376,7 @@ GameObject:
   - component: {fileID: 4971711341708925206}
   - component: {fileID: 1248653997827294549}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: MoneyCostText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -454,7 +456,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 52.55
+  m_fontSize: 60
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -586,7 +588,7 @@ GameObject:
   - component: {fileID: 8843279553376649908}
   - component: {fileID: 401270490406110979}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: MoneyCostText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -666,7 +668,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 52.55
+  m_fontSize: 60
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1296,7 +1298,7 @@ GameObject:
   - component: {fileID: 8128167085906401982}
   - component: {fileID: 5658636939429309990}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: MoneyCostText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1376,7 +1378,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 52.55
+  m_fontSize: 60
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2218,6 +2220,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animalToBuy: Sheep
+  maxAnimals: 5
+  animalCostText: {fileID: 0}
   errorMessage: {fileID: 5162230286646371157, guid: 8e573472bdab2064d96998d3ecd9b446, type: 3}
 --- !u!1 &6167593059264528199
 GameObject:
@@ -2593,6 +2597,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animalToBuy: Chicken
+  maxAnimals: 5
+  animalCostText: {fileID: 0}
   errorMessage: {fileID: 5162230286646371157, guid: 8e573472bdab2064d96998d3ecd9b446, type: 3}
 --- !u!1 &6437600679472535626
 GameObject:
@@ -3682,7 +3688,7 @@ GameObject:
   - component: {fileID: 3878902287534564854}
   - component: {fileID: 1583465373180413483}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: MoneyCostText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3762,7 +3768,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 52.55
+  m_fontSize: 60
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3955,6 +3961,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animalToBuy: Cow
+  maxAnimals: 5
+  animalCostText: {fileID: 5658636939429309990}
   errorMessage: {fileID: 5162230286646371157, guid: 8e573472bdab2064d96998d3ecd9b446, type: 3}
 --- !u!1 &8688557953178052004
 GameObject:

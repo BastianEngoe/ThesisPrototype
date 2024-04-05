@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,7 @@ public class BuyAnimalButton : MonoBehaviour
     private Button button;
     private Image image;
     [SerializeField] private int maxAnimals = 5;
+    [SerializeField] private TMP_Text animalCostText;    
 
     [SerializeField] GameObject errorMessage;
 
@@ -16,6 +18,16 @@ public class BuyAnimalButton : MonoBehaviour
         button = GetComponent<Button>();
         image = GetComponent<Image>();
         StartCoroutine(BounceButton());
+        
+        if (!animalCostText)
+        {
+            animalCostText = transform.Find("MoneyCostText").GetComponent<TMP_Text>();
+        }
+        
+        if (animalCostText != null)
+        {
+            animalCostText.text = GetAnimalCost(animalToBuy).ToString();
+        }
     }
 
     
