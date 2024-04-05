@@ -81,6 +81,18 @@ public class GameManager : MonoBehaviour
         {
             happiness = 1f;
         }
+
+        if (timer < 0)
+        {
+            if (gold >= quota)
+            {
+                Debug.Log("You win!");
+            }
+            else
+            {
+                Debug.Log("You Lose...");
+            }
+        }
     }
 
     public bool BuyAnimal(string animal)
