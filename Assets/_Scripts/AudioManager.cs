@@ -7,6 +7,8 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
     
+    public AudioBankScriptableObject audioBank;
+    
     public AudioSource ambianceSource;
     public AudioSource musicSource;
     public AudioSource sfxSource;
