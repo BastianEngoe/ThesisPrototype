@@ -15,6 +15,9 @@ public class UIManager : MonoBehaviour
     public TMP_Text goldText;
     public Slider animalLeaveTimer;
 
+    [Header("UI Elements")] 
+    public GameObject gamblingPanel;
+
     private void Awake()
     {
         instance = this;

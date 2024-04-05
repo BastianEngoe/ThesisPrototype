@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -31,6 +32,11 @@ public class GameManager : MonoBehaviour
     public float costOfSheep = 100;
     public float costOfPig = 400;
     public float costOfCow = 2000;
+
+    [Header("Gambling")] 
+    public bool hasGambledOnce;
+    public TMP_InputField gambleInput;
+
 
     private void Awake()
     {
@@ -138,7 +144,6 @@ public class GameManager : MonoBehaviour
         boughtAnimals.Remove(animalToLeave);
         
         int whichAnim = Random.Range(0, 3);
-        Debug.Log(whichAnim);
         switch (whichAnim)
         {
             case 0: animalAnim.Play("Walk");
@@ -155,5 +160,42 @@ public class GameManager : MonoBehaviour
             new Vector3(animalToLeave.transform.position.x + 5f, animalToLeave.transform.position.y,
                 animalToLeave.transform.position.z - 11), 3f);
         Destroy(animalToLeave, 3f);
+    }
+
+    public void Gamble()
+    {
+        if (gambleInput.text == "")
+        {
+            Debug.Log("Please enter a value to gamble");
+            return;
+        } 
+        
+        if (int.Parse(gambleInput.text) <= (int)gold)
+        {
+            if (!hasGambledOnce)
+            {
+                hasGambledOnce = true;
+                gold -= int.Parse(gambleInput.text);
+                Debug.Log("Gamble lost!");
+            }
+            else
+            {
+                int chance = Random.Range(0, 100);
+                if (chance < 50)
+                {
+                    gold -= int.Parse(gambleInput.text);
+                    Debug.Log("Gamble lost!");
+                }
+                else
+                {
+                    gold += int.Parse(gambleInput.text);
+                    Debug.Log("Gamble won!");
+                }
+            }
+        }
+        else
+        {
+            Debug.Log("You don't have enough gold to gamble that amount");
+        }
     }
 }
