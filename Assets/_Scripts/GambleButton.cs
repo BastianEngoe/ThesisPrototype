@@ -22,14 +22,14 @@ public class GambleButton : MonoBehaviour
         
     }
     
-    public void GambleButtonPress()
+   public void GambleButtonPress()
     {
         int.TryParse(textInput.text, out int bet);
         if (bet <= 0)
         {
             string message = "Invalid bet amount, must be greater than 0";
             Debug.Log(message);
-            DisplayErrorMessage(message);
+            DisplayErrorMessage(message, errorMessage.GetComponent<TMP_Text>().color);
             return;
         }
 
@@ -37,7 +37,7 @@ public class GambleButton : MonoBehaviour
         {
             string message = "You don't have enough gold to gamble that amount";
             Debug.Log(message);
-            DisplayErrorMessage(message);
+            DisplayErrorMessage(message, errorMessage.GetComponent<TMP_Text>().color);
             return;
         }
 
@@ -47,17 +47,30 @@ public class GambleButton : MonoBehaviour
         {
             string message = "Gamble lost!";
             Debug.Log(message);
-            DisplayErrorMessage(message);
+            DisplayErrorMessage(message, errorMessage.GetComponent<TMP_Text>().color);
+        }
+        else
+        {
+            string message = "Gamble won!";
+            Debug.Log(message);
+            DisplayErrorMessage(message, Color.green);
         }
     }
 
-    private void DisplayErrorMessage(string message)
+    private void DisplayErrorMessage(string message, Color color)
     {
         GameObject errorObject = Instantiate(errorMessage, transform.parent);
         TMP_Text errorText = errorObject.GetComponentInChildren<TMP_Text>();
+        Animator errorAnimator = errorObject.GetComponent<Animator>();
+        
+        if (errorAnimator != null)
+        {
+            errorAnimator.speed = 0.4f;
+        }
         if (errorText != null)
         {
             errorText.text = message;
+            errorText.color = color;
         }
         Debug.Log(message);
     }
