@@ -19,11 +19,6 @@ public class BuyAnimalButton : MonoBehaviour
         image = GetComponent<Image>();
         StartCoroutine(BounceButton());
         
-        if (!animalCostText)
-        {
-            animalCostText = transform.Find("MoneyCostText").GetComponent<TMP_Text>();
-        }
-        
         if (animalCostText != null)
         {
             animalCostText.text = GetAnimalCost(animalToBuy).ToString();
@@ -37,7 +32,6 @@ public class BuyAnimalButton : MonoBehaviour
 
         if (!buySuccessful)
         {
-            Debug.Log("Not enough money!");
             Instantiate(errorMessage, transform.parent);
         }
         else
