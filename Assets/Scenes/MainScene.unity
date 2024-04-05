@@ -973,6 +973,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 821703337476638820, guid: d822fe03222330a4ea0009c4cd5aa96a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1.8927
+      objectReference: {fileID: 0}
+    - target: {fileID: 821703337476638820, guid: d822fe03222330a4ea0009c4cd5aa96a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.8927
+      objectReference: {fileID: 0}
+    - target: {fileID: 821703337476638820, guid: d822fe03222330a4ea0009c4cd5aa96a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.8927
+      objectReference: {fileID: 0}
+    - target: {fileID: 821703337476638820, guid: d822fe03222330a4ea0009c4cd5aa96a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 821703337476638820, guid: d822fe03222330a4ea0009c4cd5aa96a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 822140451270473087, guid: d822fe03222330a4ea0009c4cd5aa96a, type: 3}
       propertyPath: m_Name
       value: MainGameCanvas
@@ -1049,6 +1069,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 7675826601332790545, guid: 988a43489d6f11949950d1b93c450711, type: 3}
+    - target: {fileID: 5218574375803172799, guid: d822fe03222330a4ea0009c4cd5aa96a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5239106039263505013, guid: d822fe03222330a4ea0009c4cd5aa96a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1077,6 +1101,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5266723117225697914, guid: d822fe03222330a4ea0009c4cd5aa96a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 6840857970483876212, guid: 9e4fe252f6b01d74aa54ff1482746568, type: 3}
     - target: {fileID: 5302633760714285859, guid: d822fe03222330a4ea0009c4cd5aa96a, type: 3}
       propertyPath: m_IsActive
       value: 1
