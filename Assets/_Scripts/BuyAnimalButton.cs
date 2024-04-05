@@ -7,6 +7,7 @@ public class BuyAnimalButton : MonoBehaviour
     [SerializeField] private string animalToBuy;
     private Button button;
     private Image image;
+    [SerializeField] private int maxAnimals = 5;
 
     [SerializeField] GameObject errorMessage;
 
@@ -22,14 +23,19 @@ public class BuyAnimalButton : MonoBehaviour
     {
         bool buySuccessful = GameManager.instance.BuyAnimal(animalToBuy);
 
-        if (buySuccessful)
-        {
-            Destroy(gameObject);
-        }
-        else
+        if (!buySuccessful)
         {
             Debug.Log("Not enough money!");
             Instantiate(errorMessage, transform.parent);
+        }
+        else
+        {
+            maxAnimals--;
+        }
+
+        if (maxAnimals == 0)
+        {
+            Destroy(gameObject);
         }
     }
     
