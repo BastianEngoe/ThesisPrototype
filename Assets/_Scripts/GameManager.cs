@@ -14,7 +14,8 @@ public class GameManager : MonoBehaviour
     [Header("Resources")] 
     public float gold;
     [Range(0.0f, 1.0f)] public float happiness;
-    public float timer = 600; //10 minutes
+    public float timer = 720; //12 minutes
+    public float elapsedTime = 0;
 
     [Header("Production")]
     [Range(0.0f, 1.0f)] public float produce;
@@ -50,14 +51,15 @@ public class GameManager : MonoBehaviour
     
     private void Update()
     {
-        timer -= Time.deltaTime;
+        elapsedTime += Time.deltaTime;
 
-        if (UIManager.instance) UIManager.instance.timeSlider.value = timer;
+        if (UIManager.instance) UIManager.instance.timeSlider.value = elapsedTime;
 
-        if (happiness > 0.01f)
+        if (happiness < 99.99f)
         {
-            gold += animalProduction * (produce * happiness) * Time.deltaTime;
-            happiness -= produce * 0.1f * Time.deltaTime;
+            float depression = 1 - happiness;
+            gold += animalProduction * (produce * depression) * Time.deltaTime;
+            happiness += produce * 0.1f * Time.deltaTime;
             UIManager.instance.animalLeaveTimer.gameObject.SetActive(false);
             animalLeaveTimer = 30f;
         }
@@ -74,15 +76,19 @@ public class GameManager : MonoBehaviour
 
         if (produce < 0.01f)
         {
-            happiness += 0.01f * Time.deltaTime;
+            happiness -= 0.01f * Time.deltaTime;
         }
 
         if (happiness > 1f)
         {
             happiness = 1f;
         }
+        if (happiness < 0)
+        {
+            happiness = 0;
+        }
 
-        if (timer < 0)
+        if (elapsedTime > timer)
         {
             if (gold >= quota)
             {
