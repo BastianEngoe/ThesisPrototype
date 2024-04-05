@@ -162,40 +162,34 @@ public class GameManager : MonoBehaviour
         Destroy(animalToLeave, 3f);
     }
 
-    public void Gamble()
+    public bool Gamble(int bet)
     {
-        if (gambleInput.text == "")
-        {
-            Debug.Log("Please enter a value to gamble");
-            return;
-        } 
-        
-        if (int.Parse(gambleInput.text) <= (int)gold)
+        if (bet <= (int)gold)
         {
             if (!hasGambledOnce)
             {
                 hasGambledOnce = true;
-                gold -= int.Parse(gambleInput.text);
-                Debug.Log("Gamble lost!");
+                gold -= bet;
+                return false; // Gamble lost
             }
             else
             {
                 int chance = Random.Range(0, 100);
                 if (chance < 50)
                 {
-                    gold -= int.Parse(gambleInput.text);
-                    Debug.Log("Gamble lost!");
+                    gold -= bet;
+                    return false; // Gamble lost
                 }
                 else
                 {
-                    gold += int.Parse(gambleInput.text);
-                    Debug.Log("Gamble won!");
+                    gold += bet;
+                    return true; // Gamble won
                 }
             }
         }
         else
         {
-            Debug.Log("You don't have enough gold to gamble that amount");
+            return false; // Not enough gold to gamble
         }
     }
 }
