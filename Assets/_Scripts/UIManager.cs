@@ -19,6 +19,9 @@ public class UIManager : MonoBehaviour
     public Slider productionSlider;
     public TMP_Text animalProduction;
 
+    [Header("Instantiation")] [SerializeField]
+    private GameObject coinImage;
+
     private void Awake()
     {
         instance = this;
