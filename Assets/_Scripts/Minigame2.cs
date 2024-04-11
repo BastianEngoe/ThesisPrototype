@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,6 +19,8 @@ public class Minigame2 : MonoBehaviour
         animHappyGauge = GetComponentInChildren<Slider>();
         
         animHappyGauge.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
+        
+        animalAnim.Play("Eyes_Cry");
     }
 
     void ValueChangeCheck()
@@ -31,5 +34,31 @@ public class Minigame2 : MonoBehaviour
         {
             animalAnim.Play("Eyes_Cry");
         }
+        
+        if(animHappyGauge.value > 99)
+        {
+            Invoke("FinishMinigame", 1.25f);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.CompareTag("Hay"))
+        {
+            Debug.Log("Hay there");
+            animHappyGauge.value += 20;
+            Destroy(col.gameObject);
+        }
+    }
+    
+    public void CancelMinigame()
+    {
+        Destroy(gameObject);
+    }
+
+    private void FinishMinigame()
+    {
+        GameManager.instance.happiness = 0;
+        Destroy(gameObject);
     }
 }
