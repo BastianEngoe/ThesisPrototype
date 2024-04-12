@@ -1,13 +1,14 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Minigame1 : MonoBehaviour
+public class Minigame3 : MonoBehaviour
 {
     private GameObject animalToUse;
     private Animator animalAnim;
-    private Slider animHappyGauge;
+    [SerializeField] private Slider animHappyGauge, powerGauge;
     [SerializeField] private Transform spawnPoint;
-    private bool hasWon;
     
     private void OnEnable()
     {
@@ -19,42 +20,40 @@ public class Minigame1 : MonoBehaviour
 
         GameObject animalToSpawn = Instantiate(animalToUse, spawnPoint.position, spawnPoint.rotation, spawnPoint);
         animalAnim = animalToSpawn.GetComponent<Animator>();
-
-        animHappyGauge = GetComponentInChildren<Slider>();
+        
+        animalAnim.Play("Eyes_Trauma");
     }
-
-    private void Update()
+    
+    void Update()
     {
-        if (!hasWon)
+        if (Input.GetMouseButton(0))
         {
-            if (Input.GetMouseButton(0))
+            powerGauge.value += 120f * Time.deltaTime;
+            
+            if (animHappyGauge.value > 60)
             {
-                if (animHappyGauge.value > 60)
-                {
-                    animalAnim.Play("Eyes_Excited");
-                }
-                animHappyGauge.value += 15f * Time.deltaTime;
+                animalAnim.Play("Eyes_Excited");
             }
-            else
-            {
-                animalAnim.Play("Eyes_Trauma");
-                animHappyGauge.value -= 5f * Time.deltaTime;
-            }
+            else animalAnim.Play("Eyes_Trauma");
+        }
+        else if (powerGauge.value > 1)
+        {
+            animHappyGauge.value += (powerGauge.value * 0.5f);
+            powerGauge.value = 0;
         }
 
-        if (animHappyGauge.value < 0)
+        if (powerGauge.value > 99)
         {
-            animHappyGauge.value = 0;
+            powerGauge.value = 0;
         }
-
-        if (animHappyGauge.value > 99.9f)
+        
+        if (animHappyGauge.value > 99)
         {
             Invoke("FinishMinigame", 1.25f);
             animalAnim.Play("Spin");
-            hasWon = true;
         }
     }
-
+    
     public void CancelMinigame()
     {
         Destroy(gameObject);
