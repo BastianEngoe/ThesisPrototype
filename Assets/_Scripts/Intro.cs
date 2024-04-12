@@ -11,12 +11,14 @@ public class Intro : MonoBehaviour
     
     private void Start()
     {
+        Time.timeScale = 0;
         StartCoroutine(BlinkText());
     }
     
     private IEnumerator BlinkText()
     {
         yield return new WaitForSecondsRealtime(2);
+        Time.timeScale = 1;
         while (true)
         {
             clicktoContinue.SetActive(true);
