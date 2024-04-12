@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public int quota;
     public float animalProduction = 1;
     public float animalLeaveTimer = 30f;
+    public float minigameTimer = 20f;
 
     [Header("Animals")]
     public GameObject[] animals;
@@ -37,6 +38,9 @@ public class GameManager : MonoBehaviour
     [Header("Gambling")] 
     public bool hasGambledOnce;
     public TMP_InputField gambleInput;
+
+    [Header("Happiness Minigames")] 
+    [SerializeField] private GameObject[] minigamePrefabs;
 
 
     private void Awake()
@@ -55,16 +59,17 @@ public class GameManager : MonoBehaviour
 
         if (UIManager.instance) UIManager.instance.timeSlider.value = elapsedTime;
 
-        if (happiness < 99.99f)
+        if (happiness < 0.99f)
         {
             float depression = 1 - happiness;
             gold += animalProduction * (produce * depression) * Time.deltaTime;
-            happiness += produce * 0.1f * Time.deltaTime;
+            happiness += produce * 0.05f * Time.deltaTime;
             UIManager.instance.animalLeaveTimer.gameObject.SetActive(false);
             animalLeaveTimer = 30f;
         }
-        else if (boughtAnimals.Count > 1)
+        else if(boughtAnimals.Count > 1)
         {
+            Debug.Log("hi");
             UIManager.instance.animalLeaveTimer.gameObject.SetActive(true);
             animalLeaveTimer -= Time.deltaTime;
             if (animalLeaveTimer < 0)
@@ -73,6 +78,7 @@ public class GameManager : MonoBehaviour
                 animalLeaveTimer = 30f;
             }
         }
+        else UIManager.instance.animalLeaveTimer.gameObject.SetActive(false);
 
         if (produce < 0.01f)
         {
@@ -98,6 +104,13 @@ public class GameManager : MonoBehaviour
             {
                 Debug.Log("You Lose...");
             }
+        }
+
+        minigameTimer -= Time.deltaTime;
+        if (minigameTimer < 0)
+        {
+            UIManager.instance.minigameButton.interactable = true;
+            UIManager.instance.minigameTimer.gameObject.SetActive(false);
         }
     }
 
@@ -223,5 +236,17 @@ public class GameManager : MonoBehaviour
         {
             return false; // Not enough gold to gamble
         }
+    }
+
+    public void InstantiateMinigame()
+    {
+        Instantiate(minigamePrefabs[Random.Range(0, minigamePrefabs.Length)]);
+    }
+
+    public void ResetMinigameTimer()
+    {
+        minigameTimer = 20f;
+        UIManager.instance.minigameButton.interactable = false;
+        UIManager.instance.minigameTimer.gameObject.SetActive(true);
     }
 }

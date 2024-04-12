@@ -6,13 +6,17 @@ public class Minigame1 : MonoBehaviour
     private GameObject animalToUse;
     private Animator animalAnim;
     private Slider animHappyGauge;
+    [SerializeField] private Transform spawnPoint;
+    
     private void OnEnable()
     {
-        animalToUse = GameManager.instance.boughtAnimals[0];
+        if (GameManager.instance.boughtAnimals.Count > 1)
+        {
+            animalToUse = GameManager.instance.boughtAnimals[Random.Range(0, GameManager.instance.boughtAnimals.Count)];
+        }
+        else animalToUse = GameManager.instance.boughtAnimals[0];
 
-        GameObject animalToSpawn = Instantiate(animalToUse, new Vector3(-250,-450,-50) , Quaternion.Euler(0, 130, 0), transform);
-        animalToSpawn.transform.localPosition = new Vector3(-250,-450,-50);
-        animalToSpawn.transform.localScale = new Vector3(683.25219f, 683.252197f, 683.252197f);
+        GameObject animalToSpawn = Instantiate(animalToUse, spawnPoint.position, spawnPoint.rotation, spawnPoint);
         animalAnim = animalToSpawn.GetComponent<Animator>();
 
         animHappyGauge = GetComponentInChildren<Slider>();
@@ -30,7 +34,7 @@ public class Minigame1 : MonoBehaviour
         }
         else
         {
-            animalAnim.Play("Eyes_Cry");
+            animalAnim.Play("Eyes_Trauma");
             animHappyGauge.value -= 5f * Time.deltaTime;
         }
 
@@ -48,11 +52,13 @@ public class Minigame1 : MonoBehaviour
     public void CancelMinigame()
     {
         Destroy(gameObject);
+        GameManager.instance.ResetMinigameTimer();
     }
 
     private void FinishMinigame()
     {
         GameManager.instance.happiness = 0;
+        GameManager.instance.ResetMinigameTimer();
         Destroy(gameObject);
     }
 }

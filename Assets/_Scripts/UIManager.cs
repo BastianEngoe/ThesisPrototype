@@ -14,10 +14,12 @@ public class UIManager : MonoBehaviour
     public Slider happinessSlider;
     public TMP_Text goldText;
     public Slider animalLeaveTimer;
+    public Slider minigameTimer;
 
     [Header("UI Elements")] 
     public Slider productionSlider;
     public TMP_Text animalProduction;
+    public Button minigameButton;
 
     [Header("Instantiation")] [SerializeField]
     private GameObject coinImage;
@@ -62,5 +64,6 @@ public class UIManager : MonoBehaviour
         animalLeaveTimer.value = GameManager.instance.animalLeaveTimer;
         GameManager.instance.produce = productionSlider.value;
         animalProduction.text = "x " + GameManager.instance.animalProduction;
+        minigameTimer.value = GameManager.instance.minigameTimer;
     }
 }
