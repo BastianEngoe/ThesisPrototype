@@ -823,10 +823,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainGameCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 3352547476785379404, guid: d822fe03222330a4ea0009c4cd5aa96a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4253459777832229372, guid: d822fe03222330a4ea0009c4cd5aa96a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -871,10 +867,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 7788732461329722712, guid: d822fe03222330a4ea0009c4cd5aa96a, type: 3}
-      propertyPath: m_RenderMode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8283143749317507452, guid: d822fe03222330a4ea0009c4cd5aa96a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
