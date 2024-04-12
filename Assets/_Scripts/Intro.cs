@@ -4,37 +4,35 @@ using UnityEngine;
 
 public class Intro : MonoBehaviour
 {
-    [SerializeField] private GameObject clicktoContinue;
+    [SerializeField] private GameObject clickToContinue;
     
     
     
     
     private void Start()
     {
-        Time.timeScale = 0;
         StartCoroutine(BlinkText());
+        Time.timeScale = 0;
     }
     
     private IEnumerator BlinkText()
     {
         yield return new WaitForSecondsRealtime(2);
-        Time.timeScale = 1;
         while (true)
         {
-            clicktoContinue.SetActive(true);
-            yield return new WaitForSeconds(0.5f);
-            clicktoContinue.SetActive(false);
-            yield return new WaitForSeconds(0.5f);
+            clickToContinue.SetActive(true);
+            yield return new WaitForSecondsRealtime(0.5f);
+            clickToContinue.SetActive(false);
+            yield return new WaitForSecondsRealtime(0.5f);
         }
-        
     }
-    
     
     
     void Update()
     {
         if (Input.GetMouseButtonDown(0)) // 0 is the left mouse button
         {
+            Time.timeScale = 1;
             Destroy(gameObject);
         }
     }
