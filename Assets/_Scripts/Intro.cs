@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Intro : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class Intro : MonoBehaviour
     
     private void Start()
     {
+        GetComponent<Image>().color = new Color(0, 0, 0, 0.95f);
+        GetComponent<CanvasGroup>().alpha = 1;
         StartCoroutine(BlinkText());
         Time.timeScale = 0;
     }

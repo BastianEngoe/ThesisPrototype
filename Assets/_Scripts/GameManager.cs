@@ -10,12 +10,16 @@ using Random = UnityEngine.Random;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+
+    [Header("Group")] public bool isGroupA = false;
     
     [Header("Resources")] 
     public float gold;
     [Range(0.0f, 1.0f)] public float happiness;
     public float timer = 720; //12 minutes
     public float elapsedTime = 0;
+    public static event Action MoneyJustIncreased; // Declare the event
+    public float previousGold;
 
     [Header("Production")]
     [Range(0.0f, 1.0f)] public float produce;
@@ -42,6 +46,11 @@ public class GameManager : MonoBehaviour
     [Header("Happiness Minigames")] 
     [SerializeField] private GameObject[] minigamePrefabs;
 
+
+    private void Start()
+    {
+        previousGold = gold - (gold/2);
+    }
 
     private void Awake()
     {
@@ -112,6 +121,13 @@ public class GameManager : MonoBehaviour
             UIManager.instance.minigameButton.interactable = true;
             UIManager.instance.minigameTimer.gameObject.SetActive(false);
         }
+        
+        
+        if (gold - previousGold >= 1f)
+        {
+            previousGold = gold; // Store the whole number part of the current gold
+            MoneyJustIncreased?.Invoke(); // Invoke the event if gold has increased by a whole number
+        }
     }
 
     public bool BuyAnimal(string animal)
@@ -166,7 +182,7 @@ public class GameManager : MonoBehaviour
             }
             boughtSuccessful = true;
         }
-
+        previousGold = gold;
         return boughtSuccessful;
     }
 

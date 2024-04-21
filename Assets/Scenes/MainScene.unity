@@ -511,10 +511,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9833594269c8a947bde61f17e081451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGroupA: 0
   gold: 500
   happiness: 0
   timer: 720
   elapsedTime: 0
+  previousGold: 0
   produce: 0
   quota: 3000
   animalProduction: 0
@@ -552,6 +554,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &901421815 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5302633760714285859, guid: d822fe03222330a4ea0009c4cd5aa96a, type: 3}
+  m_PrefabInstance: {fileID: 189191415540731229}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &901421819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901421815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83a921e8953362e49bfb85c7e53a6ac0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &986635344 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7674741978987496901, guid: d822fe03222330a4ea0009c4cd5aa96a, type: 3}
@@ -962,7 +981,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5302633760714285859, guid: d822fe03222330a4ea0009c4cd5aa96a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 901421819}
   m_SourcePrefab: {fileID: 100100000, guid: d822fe03222330a4ea0009c4cd5aa96a, type: 3}
 --- !u!1001 &1924996795390563355
 PrefabInstance:

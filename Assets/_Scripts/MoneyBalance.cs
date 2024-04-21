@@ -20,7 +20,7 @@ public class MoneyBalance : MonoBehaviour
     {
         if (moneyText != null)
         {
-            moneyText.text = "\u00a2" + gameManager.gold.ToString("F0");
+            moneyText.text = "\u00a2" + Math.Floor(gameManager.gold).ToString();
         }
     }
 }
