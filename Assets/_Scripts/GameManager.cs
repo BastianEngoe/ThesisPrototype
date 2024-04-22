@@ -18,7 +18,9 @@ public class GameManager : MonoBehaviour
     [Range(0.0f, 1.0f)] public float happiness;
     public float timer = 720; //12 minutes
     public float elapsedTime = 0;
-    public static event Action MoneyJustIncreased; // Declare the event
+    public static event Action MoneyJustIncreased; // Declare events
+    public static event Action GameOver;
+    
     public float previousGold;
 
     [Header("Production")]
@@ -127,6 +129,11 @@ public class GameManager : MonoBehaviour
         {
             previousGold = gold; // Store the whole number part of the current gold
             MoneyJustIncreased?.Invoke(); // Invoke the event if gold has increased by a whole number
+        }
+        
+        if (elapsedTime >= timer)
+        {
+            GameOver?.Invoke();
         }
     }
 

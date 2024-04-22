@@ -6,8 +6,7 @@ using UnityEngine.UI;
 public class Intro : MonoBehaviour
 {
     [SerializeField] private GameObject clickToContinue;
-    
-    
+    private bool canClick;
     
     
     private void Start()
@@ -16,11 +15,13 @@ public class Intro : MonoBehaviour
         GetComponent<CanvasGroup>().alpha = 1;
         StartCoroutine(BlinkText());
         Time.timeScale = 0;
+        canClick = false;
     }
     
     private IEnumerator BlinkText()
     {
-        yield return new WaitForSecondsRealtime(2);
+        yield return new WaitForSecondsRealtime(5);
+        canClick = true;
         while (true)
         {
             clickToContinue.SetActive(true);
@@ -33,7 +34,7 @@ public class Intro : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // 0 is the left mouse button
+        if (Input.GetMouseButtonDown(0) && canClick) // 0 is the left mouse button
         {
             Time.timeScale = 1;
             Destroy(gameObject);
