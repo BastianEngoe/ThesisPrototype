@@ -1346,7 +1346,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Here you can buy more animals. Use the Mouse to Click on the Shop
+  m_text: Here you can buy more animals. Use the Mouse and click on the Shop to open
+    it
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 551e218f9701d314e94c0ead66d64fa6, type: 2}
   m_sharedMaterial: {fileID: 8330648305802896140, guid: 551e218f9701d314e94c0ead66d64fa6, type: 2}
@@ -2149,8 +2150,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6243605323334713836}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.2357734, y: 0.24438824}
-  m_AnchorMax: {x: 0.78125465, y: 0.39252087}
+  m_AnchorMin: {x: 0.2279143, y: 0.28861088}
+  m_AnchorMax: {x: 0.77339554, y: 0.43674353}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2345,7 +2346,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6243605323334713836
 RectTransform:
   m_ObjectHideFlags: 0

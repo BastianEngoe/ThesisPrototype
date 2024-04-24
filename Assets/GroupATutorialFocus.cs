@@ -11,6 +11,8 @@ public class GroupATutorialFocus : MonoBehaviour
     private GameManager gamanager;
     private bool object3isDone;
     private bool object4isDone;
+    private bool object5isDone;
+
     
     private void Start()
     {
@@ -57,12 +59,18 @@ public class GroupATutorialFocus : MonoBehaviour
                 currentObject++;
             }
             
-            if (currentObject < 3)
+            if (currentObject < 4)
             {
                 StopCoroutine(BlinkText());
                 canClick = false;
                 clickToContinue.SetActive(false);
                 StartCoroutine(AnotherOnboarding());
+            }
+
+            if (currentObject == 4 && !object3isDone)
+            {
+                object3isDone = true;
+                StopAllCoroutines();
             }
             
             Debug.Log("New current object is: "+currentObject);
@@ -75,23 +83,37 @@ public class GroupATutorialFocus : MonoBehaviour
                 clickToContinue.SetActive(false);
                 Debug.Log("Click to continue should be disabled");
             }
+            
+            if (currentObject > 4)
+            {
+                StopAllCoroutines();
+            }
         }
         
-        if (gamanager.elapsedTime > 60 && currentObject == 4 && !object3isDone)
+        if (gamanager.elapsedTime > 60 && currentObject == 4 && !object4isDone)
         {
-            object3isDone = true;
+            object4isDone = true;
             StartCoroutine(AnotherOnboarding());
         }
         
-        if (gamanager.elapsedTime > 90 && currentObject == 5 && !object4isDone)
+        if (currentObject > 4)
         {
-            object4isDone = true;
+            StopAllCoroutines();
+        }
+        
+        if (gamanager.elapsedTime > 90 && currentObject == 5 && !object5isDone)
+        {
+            object5isDone = true;
             StartCoroutine(AnotherOnboarding());
         }
     }
     
     IEnumerator AnotherOnboarding()
     {
+        Debug.Log("started another onboarding");
+        StopCoroutine(BlinkText());
+        canClick = false;
+        clickToContinue.SetActive(false);
         groupAObjects[currentObject].SetActive(true);
         yield return new WaitForSeconds(3);
         StartCoroutine(BlinkText());
