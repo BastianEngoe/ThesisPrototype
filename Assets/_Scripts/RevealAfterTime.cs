@@ -1,7 +1,8 @@
 using UnityEngine;
 
-public class GamblingOnboarding : MonoBehaviour
+public class RevealAfterTime : MonoBehaviour
 {
+    [SerializeField] private float timeToReveal = 360;
     private bool onboarded = false;
     private CanvasGroup canvasGroup;
 
@@ -26,14 +27,14 @@ public class GamblingOnboarding : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.instance.elapsedTime >= 360 && GameManager.instance.isGroupA && !onboarded)
+        if (GameManager.instance.elapsedTime >= timeToReveal && GameManager.instance.isGroupA && !onboarded)
         {
-            OnboardCasino();
+            OnboardReveal();
             onboarded = true;
         }
     }
 
-    private void OnboardCasino()
+    private void OnboardReveal()
     {
         canvasGroup.alpha = 1;
         canvasGroup.interactable = true;

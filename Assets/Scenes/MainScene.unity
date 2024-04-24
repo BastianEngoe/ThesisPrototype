@@ -511,7 +511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9833594269c8a947bde61f17e081451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isGroupA: 0
+  isGroupA: 1
   gold: 500
   happiness: 0
   timer: 720
