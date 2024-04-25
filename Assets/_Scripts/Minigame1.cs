@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class Minigame1 : MonoBehaviour
 {
@@ -21,6 +23,12 @@ public class Minigame1 : MonoBehaviour
         animalAnim = animalToSpawn.GetComponent<Animator>();
 
         animHappyGauge = GetComponentInChildren<Slider>();
+    }
+
+    private void Start()
+    {
+        GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceCamera;
+        GetComponent<Canvas>().worldCamera = Camera.main;
     }
 
     private void Update()

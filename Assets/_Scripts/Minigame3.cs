@@ -24,6 +24,12 @@ public class Minigame3 : MonoBehaviour
         animalAnim.Play("Eyes_Trauma");
     }
     
+    private void Start()
+    {
+        GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceCamera;
+        GetComponent<Canvas>().worldCamera = Camera.main;
+    }
+    
     void Update()
     {
         if (Input.GetMouseButton(0))

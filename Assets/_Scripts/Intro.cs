@@ -11,11 +11,21 @@ public class Intro : MonoBehaviour
     
     private void Start()
     {
-        GetComponent<Image>().color = new Color(0, 0, 0, 0.95f);
-        GetComponent<CanvasGroup>().alpha = 1;
-        StartCoroutine(BlinkText());
-        Time.timeScale = 0;
-        canClick = false;
+        if (!GameManager.instance.skipIntro)
+        {
+            GetComponent<Image>().color = new Color(0, 0, 0, 0.95f);
+            GetComponent<CanvasGroup>().alpha = 1;
+            StartCoroutine(BlinkText());
+            Time.timeScale = 0;
+            canClick = false;
+        }else
+        {
+            GetComponent<Image>().color = new Color(0, 0, 0, 0);
+            GetComponent<CanvasGroup>().alpha = 0;
+            GetComponent<CanvasGroup>().blocksRaycasts = false;
+            GetComponent<CanvasGroup>().interactable = false;
+            Time.timeScale = 1;
+        }
     }
     
     private IEnumerator BlinkText()

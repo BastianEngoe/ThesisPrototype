@@ -15,6 +15,19 @@ public class QuitShopButton : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            QuitShop();
+            if (GameManager.instance.currentActiveMinigame)
+            {
+               Destroy(GameManager.instance.currentActiveMinigame);
+            }
+            
+        }
+    }
+
     public void QuitShop()
     {
         shop.GetComponent<CanvasGroup>().alpha = 0;

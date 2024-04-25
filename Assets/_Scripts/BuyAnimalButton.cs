@@ -21,7 +21,7 @@ public class BuyAnimalButton : MonoBehaviour
         
         if (animalCostText != null)
         {
-            animalCostText.text = GetAnimalCost(animalToBuy).ToString();
+            animalCostText.text = "\u00a2" + GetAnimalCost(animalToBuy).ToString();
         }
     }
 

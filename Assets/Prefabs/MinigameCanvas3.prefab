@@ -150,7 +150,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 4693666528190932298}
   m_HandleRect: {fileID: 0}
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1009947474744229692}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -246,7 +246,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1009947474744229692}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -332,10 +332,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1539500961144061773}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.88294756, z: 0, w: 0.46947163}
-  m_LocalPosition: {x: -997.7, y: -548.45, z: -0.7765083}
-  m_LocalScale: {x: 16.284603, y: 16.284603, z: 16.284603}
-  m_ConstrainProportionsScale: 0
+  m_LocalRotation: {x: -0, y: 0.88294756, z: -0, w: 0.46947163}
+  m_LocalPosition: {x: -2155.2, y: -657, z: 600}
+  m_LocalScale: {x: 900, y: 900, z: 900}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1958340159779513673}
   m_LocalEulerAnglesHint: {x: 0, y: 124, z: 0}
@@ -849,7 +849,7 @@ RectTransform:
   m_Father: {fileID: 2639013447850191627}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -907,7 +907,7 @@ GameObject:
   - component: {fileID: 2442044073253644622}
   m_Layer: 5
   m_Name: MinigameCanvas3
-  m_TagString: Untagged
+  m_TagString: Minigame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -955,7 +955,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 49
+  m_SortingOrder: 55
   m_TargetDisplay: 0
 --- !u!114 &4646539952726709852
 MonoBehaviour:
@@ -1174,11 +1174,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8493220132464026240, guid: 685faa05b31914f4a986d141a6557ceb, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8493220132464026240, guid: 685faa05b31914f4a986d141a6557ceb, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8907253599379399343, guid: 685faa05b31914f4a986d141a6557ceb, type: 3}
       propertyPath: m_Value

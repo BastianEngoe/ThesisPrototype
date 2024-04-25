@@ -362,7 +362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animalToBuy: Pig
   maxAnimals: 5
-  animalCostText: {fileID: 0}
+  animalCostText: {fileID: 1248653997827294549}
   errorMessage: {fileID: 5162230286646371157, guid: 8e573472bdab2064d96998d3ecd9b446, type: 3}
 --- !u!1 &903436541577112682
 GameObject:
@@ -2221,7 +2221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animalToBuy: Sheep
   maxAnimals: 5
-  animalCostText: {fileID: 0}
+  animalCostText: {fileID: 1583465373180413483}
   errorMessage: {fileID: 5162230286646371157, guid: 8e573472bdab2064d96998d3ecd9b446, type: 3}
 --- !u!1 &6167593059264528199
 GameObject:
@@ -2598,7 +2598,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animalToBuy: Chicken
   maxAnimals: 5
-  animalCostText: {fileID: 0}
+  animalCostText: {fileID: 401270490406110979}
   errorMessage: {fileID: 5162230286646371157, guid: 8e573472bdab2064d96998d3ecd9b446, type: 3}
 --- !u!1 &6437600679472535626
 GameObject:

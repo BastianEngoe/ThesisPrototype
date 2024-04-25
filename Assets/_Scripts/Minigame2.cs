@@ -28,6 +28,12 @@ public class Minigame2 : MonoBehaviour
         animalAnim.Play("Eyes_Trauma");
     }
 
+    private void Start()
+    {
+        GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceCamera;
+        GetComponent<Canvas>().worldCamera = Camera.main;
+    }
+    
     void ValueChangeCheck()
     {
         animalAnim.Play("Eat");

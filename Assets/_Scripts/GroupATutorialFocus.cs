@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class GroupATutorialFocus : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class GroupATutorialFocus : MonoBehaviour
     private bool object3isDone;
     private bool object4isDone;
     private bool object5isDone;
+    [FormerlySerializedAs("shopCanvas")] [SerializeField]private CanvasGroup shopBtnCanvas;
+    [SerializeField] private CanvasGroup shopPanel;
+    [SerializeField] private GameObject Minigamer;
 
     
     private void Start()
@@ -27,6 +31,12 @@ public class GroupATutorialFocus : MonoBehaviour
         if (GameManager.instance.isGroupA)
         {
             StartCoroutine(FirstOnboarding());
+        }
+        else
+        {
+            shopBtnCanvas.alpha = 1;
+            shopBtnCanvas.interactable = true;
+            shopBtnCanvas.blocksRaycasts = true;
         }
     }
     
@@ -53,18 +63,29 @@ public class GroupATutorialFocus : MonoBehaviour
             Debug.Log("Current object is: "+currentObject);
             
             
-            if (currentObject < groupAObjects.Length - 1)
+            if (currentObject < groupAObjects.Length)
             {
                 groupAObjects[currentObject].SetActive(false);
+            }
+
+            if (currentObject < groupAObjects.Length - 1)
+            {
                 currentObject++;
             }
-            
+
             if (currentObject < 4)
             {
                 StopCoroutine(BlinkText());
                 canClick = false;
                 clickToContinue.SetActive(false);
                 StartCoroutine(AnotherOnboarding());
+            }
+            
+            if (currentObject == 3)
+            {
+                shopBtnCanvas.alpha = 1;
+                shopBtnCanvas.interactable = true;
+                shopBtnCanvas.blocksRaycasts = true;
             }
 
             if (currentObject == 4 && !object3isDone)
@@ -77,34 +98,64 @@ public class GroupATutorialFocus : MonoBehaviour
 
             if (currentObject == 4)
             {
-
                 StopCoroutine(BlinkText());
                 canClick = false;
                 clickToContinue.SetActive(false);
                 Debug.Log("Click to continue should be disabled");
             }
-            
-            if (currentObject > 4)
+
+
+            if (currentObject == 5)
             {
-                StopAllCoroutines();
+                StopCoroutine(BlinkText());
+                canClick = false;
+                clickToContinue.SetActive(false);
             }
+            
+            
+            
+            // if (currentObject > 4)
+            // {
+            //     StopAllCoroutines();
+            // }
+
+            // if (currentObject == 6)
+            // {
+            //     StartCoroutine(BlinkText());
+            // }
         }
         
         if (gamanager.elapsedTime > 60 && currentObject == 4 && !object4isDone)
         {
             object4isDone = true;
             StartCoroutine(AnotherOnboarding());
+            shopPanel.alpha = 0;
+            shopPanel.interactable = false;
+            shopPanel.blocksRaycasts = false;
         }
         
-        if (currentObject > 4)
-        {
-            StopAllCoroutines();
-        }
+        
+        
+        // if (currentObject > 4)
+        // {
+        //     StopAllCoroutines();
+        // }
         
         if (gamanager.elapsedTime > 90 && currentObject == 5 && !object5isDone)
         {
             object5isDone = true;
             StartCoroutine(AnotherOnboarding());
+            StartCoroutine(BlinkText());
+            Debug.Log("The current object is: "+currentObject);
+            shopPanel.alpha = 0;
+            shopPanel.interactable = false;
+            shopPanel.blocksRaycasts = false;
+            if (gamanager.currentActiveMinigame){
+                
+              Destroy(gamanager.currentActiveMinigame);
+            
+            }
+            canClick = true;
         }
     }
     
@@ -128,7 +179,18 @@ public class GroupATutorialFocus : MonoBehaviour
             yield return new WaitForSecondsRealtime(0.5f);
             clickToContinue.SetActive(false);
             yield return new WaitForSecondsRealtime(0.5f);
+            if (currentObject == 5 && object5isDone)
+            {
+                clickToContinue.SetActive(false);
+                yield break;
+            }
+            if (currentObject == 4 && object4isDone)
+            {
+                clickToContinue.SetActive(false);
+                yield break;
+            }
         }
+        
     }
 
 }

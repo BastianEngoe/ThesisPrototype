@@ -14,7 +14,7 @@ public class Draggable : MonoBehaviour, IDragAndDrop
     {
         Vector2 localPosition = Vector2.zero;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            rectTransform, Input.mousePosition, null, out localPosition);
+            rectTransform, Input.mousePosition, Camera.main, out localPosition);
 
         rectTransform.position = rectTransform.TransformPoint(localPosition);
     }

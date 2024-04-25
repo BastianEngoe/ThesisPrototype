@@ -265,7 +265,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3674899149788883040}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -295,7 +295,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3674899149788883040}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -452,7 +452,7 @@ GameObject:
   - component: {fileID: 8291626120098992353}
   m_Layer: 5
   m_Name: MinigameCanvas1
-  m_TagString: Untagged
+  m_TagString: Minigame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -500,7 +500,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 49
+  m_SortingOrder: 55
   m_TargetDisplay: 0
 --- !u!114 &2705946835641812153
 MonoBehaviour:
@@ -591,10 +591,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6204205661480397056}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.88294756, z: 0, w: 0.46947163}
-  m_LocalPosition: {x: -997.7, y: -548.45, z: -0.7765083}
-  m_LocalScale: {x: 16.284603, y: 16.284603, z: 16.284603}
-  m_ConstrainProportionsScale: 0
+  m_LocalRotation: {x: -0, y: 0.88294756, z: -0, w: 0.46947163}
+  m_LocalPosition: {x: -2155.2, y: -657, z: 600}
+  m_LocalScale: {x: 900, y: 900, z: 900}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6291859535023009313}
   m_LocalEulerAnglesHint: {x: 0, y: 124, z: 0}

@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     [Header("Group")] public bool isGroupA = false;
+    public bool skipIntro;
     
     [Header("Resources")] 
     public float gold;
@@ -27,7 +28,8 @@ public class GameManager : MonoBehaviour
     [Range(0.0f, 1.0f)] public float produce;
     public int quota;
     public float animalProduction = 1;
-    public float animalLeaveTimer = 30f;
+    [HideInInspector]public float animalLeaveTimer;
+    public float animalLeaveTimerMax = 12f;
     public float minigameTimer = 20f;
 
     [Header("Animals")]
@@ -47,6 +49,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Happiness Minigames")] 
     [SerializeField] private GameObject[] minigamePrefabs;
+
+    public GameObject currentActiveMinigame;
 
 
     private void Start()
@@ -76,17 +80,16 @@ public class GameManager : MonoBehaviour
             gold += animalProduction * (produce * depression) * Time.deltaTime;
             happiness += produce * 0.05f * Time.deltaTime;
             UIManager.instance.animalLeaveTimer.gameObject.SetActive(false);
-            animalLeaveTimer = 30f;
+            animalLeaveTimer = animalLeaveTimerMax;
         }
         else if(boughtAnimals.Count > 1)
         {
-            Debug.Log("hi");
             UIManager.instance.animalLeaveTimer.gameObject.SetActive(true);
             animalLeaveTimer -= Time.deltaTime;
             if (animalLeaveTimer < 0)
             {
                 LeaveAnimal();
-                animalLeaveTimer = 30f;
+                animalLeaveTimer = animalLeaveTimerMax;
             }
         }
         else UIManager.instance.animalLeaveTimer.gameObject.SetActive(false);
@@ -263,7 +266,8 @@ public class GameManager : MonoBehaviour
 
     public void InstantiateMinigame()
     {
-        Instantiate(minigamePrefabs[Random.Range(0, minigamePrefabs.Length)]);
+        currentActiveMinigame = Instantiate(minigamePrefabs[Random.Range(0, minigamePrefabs.Length)]);
+        
     }
 
     public void ResetMinigameTimer()
