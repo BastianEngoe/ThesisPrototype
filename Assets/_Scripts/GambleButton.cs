@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -6,25 +7,21 @@ using UnityEngine.UI;
 
 public class GambleButton : MonoBehaviour
 {
-    [SerializeField] private TMP_InputField textInput;
+    [SerializeField] private TMP_Text buttonText;
     [SerializeField] private GameObject errorMessage;
+    [SerializeField] private Slider goldSlider;
     private GameManager gameManager;
     
     private void Start()
     {
-        if (!textInput)
-        {
-            var parent = transform.parent.transform;
-            textInput = parent.Find("InputField").GetComponent<TMP_InputField>();
-        }
-        
+
         gameManager = GameManager.instance;
         
     }
     
    public void GambleButtonPress()
     {
-        int.TryParse(textInput.text, out int bet);
+        int bet = (int)goldSlider.value;
         if (bet <= 0)
         {
             string message = "Invalid bet amount, must be greater than 0";
@@ -74,6 +71,10 @@ public class GambleButton : MonoBehaviour
         }
         Debug.Log(message);
     }
-    
-    
+
+    private void Update()
+    {
+        goldSlider.maxValue = (int)gameManager.gold;
+        buttonText.text = "GAMBLE " + (int)goldSlider.value + " GOLD";
+    }
 }
