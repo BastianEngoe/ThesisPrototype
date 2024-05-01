@@ -12,6 +12,9 @@ public class BuyAnimalButton : MonoBehaviour
     [SerializeField] private TMP_Text animalCostText;    
 
     [SerializeField] GameObject errorMessage;
+    private bool canBuy;
+    private bool bounceStarted;
+
 
     private void Start()
     {
@@ -47,7 +50,14 @@ public class BuyAnimalButton : MonoBehaviour
     
     private void Update()
     {
-        bool canBuy = GameManager.instance.gold >= GetAnimalCost(animalToBuy);
+        if (canBuy && !bounceStarted)
+        {
+            bounceStarted = true;
+            StartCoroutine(BounceButton());
+        }
+
+        
+        canBuy = GameManager.instance.gold >= GetAnimalCost(animalToBuy);
 
         if (!canBuy)
         {
@@ -78,8 +88,15 @@ public class BuyAnimalButton : MonoBehaviour
     
     IEnumerator BounceButton()
     {
-        bool canBuy = GameManager.instance.gold >= GetAnimalCost(animalToBuy);
-        while (canBuy){
+        while (true)
+        {
+            if (!canBuy)
+            {
+                transform.localScale = Vector3.one;
+                bounceStarted = false;
+                yield break;
+            }
+
             Vector3 originalScale = transform.localScale;
             Vector3 targetScale = originalScale * 1.05f;
             float time = 0;
@@ -87,6 +104,13 @@ public class BuyAnimalButton : MonoBehaviour
             // Scale up
             while (time <= 0.35f)
             {
+                if (!canBuy)
+                {
+                    transform.localScale = Vector3.one;
+                    bounceStarted = false;
+                    yield break;
+                }
+
                 transform.localScale = Vector3.Lerp(originalScale, targetScale, time / 0.25f);
                 time += Time.deltaTime;
                 yield return null;
@@ -97,6 +121,13 @@ public class BuyAnimalButton : MonoBehaviour
             // Scale down
             while (time <= 0.35f)
             {
+                if (!canBuy)
+                {
+                    transform.localScale = Vector3.one;
+                    bounceStarted = false;
+                    yield break;
+                }
+
                 transform.localScale = Vector3.Lerp(targetScale, originalScale, time / 0.25f);
                 time += Time.deltaTime;
                 yield return null;
@@ -105,8 +136,6 @@ public class BuyAnimalButton : MonoBehaviour
             // Ensure the scale is reset to the original scale
             transform.localScale = originalScale;
         }
-
-        transform.localScale = Vector3.one;
     }
     
 }

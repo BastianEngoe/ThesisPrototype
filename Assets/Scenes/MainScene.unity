@@ -468,7 +468,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 136.45
+  m_fontSize: 136.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1048,17 +1048,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 738158255}
   m_CullTransparentMesh: 1
---- !u!114 &744117167 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7948753503491180436, guid: 984071b111260b549806a7dfee796dc1, type: 3}
-  m_PrefabInstance: {fileID: 8064066329574086932}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &802988960
 GameObject:
   m_ObjectHideFlags: 0
@@ -1088,8 +1077,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9833594269c8a947bde61f17e081451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isGroupA: 0
-  skipIntro: 1
+  isGroupA: 1
+  skipIntro: 0
   gold: 500
   happiness: 0
   timer: 720
@@ -1113,7 +1102,7 @@ MonoBehaviour:
   costOfPig: 400
   costOfCow: 1200
   hasGambledOnce: 0
-  gambleInput: {fileID: 744117167}
+  gambleInput: {fileID: 0}
   minigamePrefabs:
   - {fileID: 4246136772294657986, guid: 25c0ea48976a45b4fadeade4a56f3d16, type: 3}
   - {fileID: 464836486640033813, guid: e7c02e111ddb0414289b74b3c39fb655, type: 3}
@@ -1555,7 +1544,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 66.05
+  m_fontSize: 66.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2551,7 +2540,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 51.75
+  m_fontSize: 51.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2972,7 +2961,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8614854129366049336, guid: d822fe03222330a4ea0009c4cd5aa96a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -56.999977
+      value: -56.999985
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3204,9 +3193,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7144712798349085555, guid: 984071b111260b549806a7dfee796dc1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7740296121127619795, guid: 984071b111260b549806a7dfee796dc1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -16.654312
+      value: -16.654297
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287997005608687110, guid: 984071b111260b549806a7dfee796dc1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8399337728047694759, guid: 984071b111260b549806a7dfee796dc1, type: 3}
       propertyPath: m_Name

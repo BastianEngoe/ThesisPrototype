@@ -47,7 +47,7 @@ public class GroupATutorialFocus : MonoBehaviour
 
         groupAObjects[currentObject].SetActive(true);
         yield return new WaitForSeconds(3);
-        StartCoroutine(BlinkText());
+        StartCoroutine(ShowClickToContinue());
 
     }
     
@@ -56,7 +56,6 @@ public class GroupATutorialFocus : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && canClick) // 0 is the left mouse button
         {
-            StopCoroutine(BlinkText());
             canClick = false;
             clickToContinue.SetActive(false);
 
@@ -75,7 +74,7 @@ public class GroupATutorialFocus : MonoBehaviour
 
             if (currentObject < 4)
             {
-                StopCoroutine(BlinkText());
+                
                 canClick = false;
                 clickToContinue.SetActive(false);
                 StartCoroutine(AnotherOnboarding());
@@ -91,14 +90,13 @@ public class GroupATutorialFocus : MonoBehaviour
             if (currentObject == 4 && !object3isDone)
             {
                 object3isDone = true;
-                StopAllCoroutines();
             }
             
             Debug.Log("New current object is: "+currentObject);
 
             if (currentObject == 4)
             {
-                StopCoroutine(BlinkText());
+                
                 canClick = false;
                 clickToContinue.SetActive(false);
                 Debug.Log("Click to continue should be disabled");
@@ -107,7 +105,7 @@ public class GroupATutorialFocus : MonoBehaviour
 
             if (currentObject == 5)
             {
-                StopCoroutine(BlinkText());
+                
                 canClick = false;
                 clickToContinue.SetActive(false);
             }
@@ -145,7 +143,7 @@ public class GroupATutorialFocus : MonoBehaviour
         {
             object5isDone = true;
             StartCoroutine(AnotherOnboarding());
-            StartCoroutine(BlinkText());
+            StartCoroutine(ShowClickToContinue());
             Debug.Log("The current object is: "+currentObject);
             shopPanel.alpha = 0;
             shopPanel.interactable = false;
@@ -162,12 +160,11 @@ public class GroupATutorialFocus : MonoBehaviour
     IEnumerator AnotherOnboarding()
     {
         Debug.Log("started another onboarding");
-        StopCoroutine(BlinkText());
         canClick = false;
         clickToContinue.SetActive(false);
         groupAObjects[currentObject].SetActive(true);
         yield return new WaitForSeconds(3);
-        StartCoroutine(BlinkText());
+        StartCoroutine(ShowClickToContinue());
     }
 
     private IEnumerator BlinkText()
@@ -191,6 +188,15 @@ public class GroupATutorialFocus : MonoBehaviour
             }
         }
         
+    }
+
+    private IEnumerator ShowClickToContinue()
+    {
+
+        yield return new WaitForSecondsRealtime(3);
+        canClick = true;
+        clickToContinue.SetActive(true);
+
     }
 
 }
